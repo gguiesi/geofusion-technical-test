@@ -35,12 +35,12 @@ public class UserController {
 	@Consumes(value="application/json", options=WithoutRoot.class)
 	@Post("/user")
 	public void add(User user) {
-		userDao.add(user);
 		logger.info("persiste user: ", user);
+		userDao.add(user);
 		// send email
 	}
 
 	public void success() {
-		System.out.println("GET");
 	}
 }
+
