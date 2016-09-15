@@ -7,12 +7,13 @@
 	<persistence-unit name="default">
 
 		<class>br.com.geofusion.splashpage.model.User</class>
+		<class>br.com.geofusion.splashpage.model.Question</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/splashpage?autoReconnect=true&amp;createDatabaseIfNotExist=true" />
-			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="Pastelito@123" />
+			<property name="javax.persistence.jdbc.user" value="your user" />
+			<property name="javax.persistence.jdbc.password" value="your password" />
 
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
 			<property name="hibernate.show_sql" value="false" />
