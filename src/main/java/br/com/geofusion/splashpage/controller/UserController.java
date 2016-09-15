@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by guiesi on 9/14/16.
@@ -35,7 +36,8 @@ public class UserController {
 
 	@Consumes(value="application/json", options=WithoutRoot.class)
 	@Post("/user")
-	public void add(User user) {
+	public void add(@NotNull User user) {
+		validator.onErrorSendBadRequest();
 		logger.info("persiste user: ", user);
 		userDao.add(user);
 		// send email

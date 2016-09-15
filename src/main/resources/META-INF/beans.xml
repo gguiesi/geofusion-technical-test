@@ -12,5 +12,9 @@
 			http://www.cdi-spec.org/faq/#accordion12
 		 -->
 		<exclude name="br.com.geofusion.splashpage.model.*"></exclude>
+		<!--
+			Workaround para resolver o problema com o WELD
+		-->
+		<exclude name="com.google.common.util.concurrent.MoreExecutors$SameThreadExecutorService"/>
 	</scan>
 </beans>
