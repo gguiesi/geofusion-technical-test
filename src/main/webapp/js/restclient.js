@@ -2,11 +2,15 @@
 var rootURL = "http://localhost:8080/splashpage";
 
 $('#btnSave').click(function() {
-    addUser();
+    if ($(".error").length) {
+        addUser();
+    }
 });
 
 $('#btnQtSave').click(function() {
-    addQuestions();
+    if ($(".error").length) {
+        addQuestions();
+    }
 });
 
 function addUser() {
@@ -22,6 +26,7 @@ function addUser() {
         url: rootURL + '/user',
         dataType: "json",
         data: json,
+        // testar não passar nada como parametro
         success: function(data, textStatus, jqXHR){
             alert('User insert successfully');
         },

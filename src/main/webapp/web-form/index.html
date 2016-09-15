@@ -36,7 +36,12 @@
 	<script src="../js/jquery.price_format.2.0.js" charset="utf-8"></script>
 	<script>
         function getParameterByName(name) {
-            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+            var userId = decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+            if (userId != null) {
+                return userId;
+            } else {
+                return 1;
+            }
         }
 	</script>
 </head>

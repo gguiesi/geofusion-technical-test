@@ -1,4 +1,4 @@
 target/
 *.iml
 .idea/
-src/main/webapp/WEB-INF/classes/br/com/geofusion/splashpage/
+**/classes/

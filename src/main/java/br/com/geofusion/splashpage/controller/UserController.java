@@ -3,6 +3,7 @@ package br.com.geofusion.splashpage.controller;
 import br.com.caelum.vraptor.*;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
 import br.com.caelum.vraptor.validator.Validator;
+import br.com.caelum.vraptor.view.Results;
 import br.com.geofusion.splashpage.dao.UserDao;
 import br.com.geofusion.splashpage.model.User;
 import org.slf4j.Logger;
@@ -38,6 +39,7 @@ public class UserController {
 		logger.info("persiste user: ", user);
 		userDao.add(user);
 		// send email
+		result.use(Results.json()).withoutRoot().from(user).recursive().serialize();
 	}
 
 	public void success() {
