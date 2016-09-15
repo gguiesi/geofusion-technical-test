@@ -27,5 +27,10 @@
 		<priority value="INFO" />
 		<appender-ref ref="stdout" />
 	</category>
+	
+	<category name="java.sql.DatabaseMetaData">
+		<priority value="INFO" />
+		<appender-ref ref="stdout"
+	</category>
 
 </log4j:configuration>
