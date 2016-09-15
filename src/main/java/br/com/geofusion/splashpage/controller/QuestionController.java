@@ -63,7 +63,6 @@ public class QuestionController {
 		User user = getUser(question);
 		question.setUser(user);
 		questionDao.add(question);
-//		result.use(Results.http()).setStatusCode(200);
 		result.use(Results.json()).withoutRoot().from(question).recursive().serialize();
 	}
 }
