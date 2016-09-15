@@ -2,13 +2,13 @@
 var rootURL = "http://localhost:8080/splashpage";
 
 $('#btnSave').click(function() {
-    if ($(".error").length) {
+    if ($('#cname').val() != '' && $('#cemail').val() != '') {
         addUser();
     }
 });
 
 $('#btnQtSave').click(function() {
-    if ($(".error").length) {
+    if ($("#question1").val() != '' && $("#question3").val() != '') {
         addQuestions();
     }
 });
@@ -20,18 +20,17 @@ function addUser() {
     var email = $('#cemail').val();
     var json = JSON.stringify({"name": name, "email": email});
 
-    $.ajax({
+    var ajax = $.ajax({
         type: 'POST',
         contentType: 'application/json',
         url: rootURL + '/user',
         dataType: "json",
         data: json,
-        // testar não passar nada como parametro
         success: function(data, textStatus, jqXHR){
             alert('User insert successfully');
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert('error: ' + textStatus);
+            alert('error: ' + errorThrown + ' - status code: ' + jqXHR.status);
         }
     });
 }
@@ -61,7 +60,7 @@ function addQuestions() {
                 alert('Question insert successfully');
             },
             error: function(jqXHR, textStatus, errorThrown){
-                alert('error: ' + textStatus);
+                alert('error: ' + errorThrown + ' - status code: ' + jqXHR.status);
             }
         });
 }
