@@ -2,6 +2,8 @@ package br.com.geofusion.splashpage.observer;
 
 import br.com.caelum.vraptor.events.VRaptorInitialized;
 import br.com.geofusion.splashpage.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.enterprise.context.Dependent;
 import javax.enterprise.event.Observes;
@@ -14,6 +16,7 @@ import javax.persistence.EntityManagerFactory;
  */
 @Dependent
 public class InitialDataObserver {
+	private static final Logger logger = LoggerFactory.getLogger(InitialDataObserver.class);
 	private EntityManagerFactory factory;
 
 	@Inject
@@ -23,7 +26,6 @@ public class InitialDataObserver {
 
 	public void insert(@Observes VRaptorInitialized event) {
 		EntityManager entityManager = null;
-
 		try {
 			entityManager = factory.createEntityManager();
 			entityManager.getTransaction().begin();
@@ -32,9 +34,11 @@ public class InitialDataObserver {
 			defaultUser.setEmail("default@email.com");
 			defaultUser.setName("Splashpage default user");
 
+			logger.info("verify if default user already exists");
 			User user = entityManager.find(User.class, (long)1);
 
 			if (user == null) {
+				logger.info("persiste default user: " + defaultUser.toString());
 				entityManager.persist(defaultUser);
 			}
 

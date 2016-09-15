@@ -12,7 +12,7 @@ import java.util.List;
  * Created by guiesi on 9/14/16.
  */
 public class UserDao {
-	Logger logger = LoggerFactory.getLogger(UserDao.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserDao.class);
 
 	private final EntityManager entityManager;
 
@@ -26,12 +26,12 @@ public class UserDao {
 	}
 
 	public void add(User user) {
-		logger.info("add user:", user);
+		logger.info("add user:" + user.toString());
 		entityManager.persist(user);
 	}
 
 	public User get(Long id) {
-		logger.info("get user by id:", id);
+		logger.info("get user by id:" + id);
 		return entityManager.find(User.class, id);
 	}
 

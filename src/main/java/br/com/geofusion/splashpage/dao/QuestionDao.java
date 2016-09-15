@@ -12,7 +12,7 @@ import java.util.List;
  * Created by guiesi on 9/14/16.
  */
 public class QuestionDao {
-	Logger logger = LoggerFactory.getLogger(QuestionDao.class);
+	private static final Logger logger = LoggerFactory.getLogger(QuestionDao.class);
 
 	private final EntityManager entityManager;
 
@@ -26,7 +26,7 @@ public class QuestionDao {
 	}
 
 	public void add(Question question) {
-		logger.info("add question", question);
+		logger.info("add question" + question.toString());
 		entityManager.persist(question);
 	}
 

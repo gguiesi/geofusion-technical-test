@@ -46,7 +46,7 @@ public class UserController {
 	@Post("/user")
 	public void add(@NotNull User user) {
 		validator.onErrorSendBadRequest();
-		logger.info("persiste user: ", user);
+		logger.info("persiste user: " + user.toString());
 		userDao.add(user);
 		// send email
 		sendEmail(user);
@@ -62,10 +62,10 @@ public class UserController {
 			email.setSubject("Welcome");
 			email.addTo(user.getEmail());
 			email.setMsg(EMAIL_CONTENT + user.getId());
-			logger.info("send email to: ", user);
+			logger.info("send email to: " + user.toString());
 			mailer.send(email);
 		} catch (EmailException e) {
-			logger.error("Error on send email: ", e);
+			logger.error("Error on send email: " + e.getMessage());
 		}
 	}
 }

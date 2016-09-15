@@ -50,7 +50,7 @@ public class QuestionController {
 		if (user != null && user.getId() != 1) {
 			return user;
 		} else {
-			logger.info("using default user: ", defaultUser);
+			logger.info("using default user: " + defaultUser.toString());
 			return defaultUser;
 		}
 	}
@@ -59,7 +59,7 @@ public class QuestionController {
 	@Post("/question")
 	public void add(@NotNull Question question) {
 		validator.onErrorSendBadRequest();
-		logger.info("persiste question: ", question);
+		logger.info("persiste question: " + question.toString());
 		User user = getUser(question);
 		question.setUser(user);
 		questionDao.add(question);
