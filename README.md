@@ -43,6 +43,7 @@ Altere as propriedades acima com o usuário e senha do MySQL.
 
 ### Email
 Para o envio de email eu estou utilizando o gmail.
+
 Para configurar, é necessário alterar o arquivo **production.properties** que está em **splashpage/src/main/resources**
 ```
 vraptor.simplemail.main.from = your.email@gmail.com
@@ -58,8 +59,14 @@ mvn clean install
 ```
 
 ## Execução
-
 Basta executar
 ```
 mvn jetty:run
 ```
+
+## Utilização
+Acesse a url [http://localhost:8080/splashpage/][fbd67b4f] e preencha o formulário.
+
+Preencha o formulário através do link enviado para o email cadastrado.
+
+  [fbd67b4f]: http://localhost:8080/splashpage/ "http://localhost:8080/splashpage/"
