@@ -30,7 +30,7 @@ function addUser() {
             alert('User insert successfully');
         },
         error: function(jqXHR, textStatus, errorThrown){
-            alert('error: ' + errorThrown + ' - status code: ' + jqXHR.status);
+            //alert('error: ' + errorThrown + ' - status code: ' + jqXHR.status);
         }
     });
 }
@@ -60,7 +60,7 @@ function addQuestions() {
                 alert('Question insert successfully');
             },
             error: function(jqXHR, textStatus, errorThrown){
-                alert('error: ' + errorThrown + ' - status code: ' + jqXHR.status);
+                //alert('error: ' + errorThrown + ' - status code: ' + jqXHR.status);
             }
         });
 }
